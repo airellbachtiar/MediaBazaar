@@ -1,0 +1,37 @@
+﻿@page
+@model Media_Bazaar_Website.Pages.EmployeeAvailabilityFormModel
+@section CSS{
+    <link rel="stylesheet" href="~/css/employeeavailabilitystyle.css" />
+}
+
+<div class="calendar">
+    <div class="calendar-container">
+        <form method="post">
+            <table class="calendar-table">
+                <thead>
+                    @*Day*@
+                    <tr>
+                        @foreach (Media_Bazaar_Logic.Enums.Day d in Enum.GetValues(typeof(Media_Bazaar_Logic.Enums.Day)))
+                        {
+                            <td>@(d.ToString())</td>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="monday-tab" style="border-left:none"><input id="select-monday" type="checkbox" asp-for="Monday" checked="@Model.Monday" /></td>
+                        <td class="tuesday-tab"><input id="select-tuesday" type="checkbox" asp-for="Tuesday" checked="@Model.Tuesday" /></td>
+                        <td class="wednesday-tab"><input id="select-wednesday" type="checkbox" asp-for="Wednesday" checked="@Model.Wednesday" /></td>
+                        <td class="thursday-tab"><input id="select-thursday" type="checkbox" asp-for="Thursday" checked="@Model.Thursday" /></td>
+                        <td class="friday-tab"><input id="select-friday" type="checkbox" asp-for="Friday" checked="@Model.Friday" /></td>
+                        <td class="saturday-tab"><input id="select-saturday" type="checkbox" asp-for="Saturday" checked="@Model.Saturday" /></td>
+                        <td class="sunday-tab" ><input id="select-sunday" type="checkbox" asp-for="Sunday" checked="@Model.Sunday" /></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="calendar-form">
+                <input type="submit" class="calendar-submit">
+            </div>
+        </form>
+    </div>
+</div>

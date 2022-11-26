@@ -1,0 +1,13 @@
+To run the system first open the project in Visual Studio and connect to VPN.
+
+To run the windows forms project: 
+Select: 'Media Bazaar Forms' at the top and then click the button with the green arrow next to it.
+Account that could be used for testing:
+username: TimdeLange
+password: 1
+
+To run the website:
+Select: 'Media Bazaar Website' at the top and then click the button with the green arrow next to it (IIS Express).
+The same testing account can be used here.
+
+

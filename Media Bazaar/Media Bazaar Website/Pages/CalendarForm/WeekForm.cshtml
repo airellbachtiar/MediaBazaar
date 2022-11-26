@@ -1,0 +1,120 @@
+﻿@page
+@model Media_Bazaar_Website.Pages.WeekFormModel
+@{
+    int currentMonth = Convert.ToInt32(Model.Month);
+    int currentYear = Convert.ToInt32(Model.Year);
+    DateTime firstDay = new DateTime(currentYear, currentMonth, 1);
+    int daysInCurrentMonth = DateTime.DaysInMonth(firstDay.Year, firstDay.Month);
+    DateTime lastDay = new DateTime(currentYear, currentMonth, daysInCurrentMonth);
+    // Sunday casted to int gives 0 but that will not work for us, we need 7 to be able to calculate number of empty cells correctly
+    int dayOfWeekFirst = ((int)firstDay.DayOfWeek > 0) ? (int)firstDay.DayOfWeek : 7;
+    int dayOfWeekLast = ((int)lastDay.DayOfWeek > 0) ? (int)lastDay.DayOfWeek : 7;
+}
+<script src="https://code.jquery.com/jquery-1.8.3.min.js"></script>
+<script src="https://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<script>
+window.onload = function(){ 
+    var calendarSubmitButton = document.getElementById("calendarSubmitButton");
+    
+    $("#calendarDatePicker").datepicker({
+        onSelect: function() {
+          $(this).change();
+        }
+      }).on("change", function() {
+        calendarSubmitButton.click();
+      });
+
+    $('#ui-datepicker-div').remove()
+};
+
+    </script>
+
+<div class="calendar">
+    <div class="calendar-form">
+        <form>
+            <input id="calendarDatePicker" class="calendar-date-input" asp-for="Date" value="@Model.Year-@Model.Month.PadLeft(2, '0')-@Model.Day.PadLeft(2, '0')" />
+            <input style="visibility: hidden" id="calendarSubmitButton" class="calendar-submit" type="submit" value="submit" />
+        </form>
+    </div>
+
+    <div class="calendar-container">
+        <table class="calendar-table">
+            <thead>
+                @*Starts with monday*@
+                <tr>
+                    <td>Shift</td>
+                    @foreach (DateTime d in Model.WeekDate)
+                    {
+                        <td>@(d.DayOfWeek), @(d.Date.ToString("MMMM dd yyyy"))</td>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @*Morning Shift (7*)*@
+                <tr>
+                    <td class="table-shift">Morning</td>
+                    @foreach (DateTime d in Model.WeekDate)
+                    {
+                        bool alreadyAssigned = false;
+                        foreach (ClassCollection.UserCollection.UserSchedule s in Model.Schedules)
+                        {
+                            if (s.Date == d && s.Shift == "morning")
+                            {
+                                <td class="have-schedule"></td>
+                                alreadyAssigned = true;
+                            }
+                        }
+                        if (!alreadyAssigned)
+                        {
+                            <td></td>
+                        }
+                    }
+                </tr>
+                @*Afternoon Shift (7*)*@
+                <tr>
+                    <td class="table-shift">Afternoon</td>
+                    @foreach (DateTime d in Model.WeekDate)
+                    {
+                        bool alreadyAssigned = false;
+                        foreach (ClassCollection.UserCollection.UserSchedule s in Model.Schedules)
+                        {
+                            if (s.Date == d && s.Shift == "afternoon")
+                            {
+                                <td class="have-schedule"></td>
+                                alreadyAssigned = true;
+                            }
+                        }
+                        if (!alreadyAssigned)
+                        {
+                            <td></td>
+                        }
+                    }
+                </tr>
+                @*Evening Shift (7*)*@
+                <tr>
+                    <td class="table-shift">Evening</td>
+                    @foreach (DateTime d in Model.WeekDate)
+                    {
+                        bool alreadyAssigned = false;
+                        foreach (ClassCollection.UserCollection.UserSchedule s in Model.Schedules)
+                        {
+                            if (s.Date == d && s.Shift == "evening")
+                            {
+                                <td class="have-schedule"></td>
+                                alreadyAssigned = true;
+                            }
+                        }
+                        if (!alreadyAssigned)
+                        {
+                            <td></td>
+                        }@*
+                        if (Model.Schedules.Count == 0)
+                        {
+                            <td></td>
+                        }*@
+                    }
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

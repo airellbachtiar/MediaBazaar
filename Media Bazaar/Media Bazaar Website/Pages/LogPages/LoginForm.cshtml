@@ -1,0 +1,20 @@
+﻿@page
+@model Media_Bazaar_Website.Pages.LoginFormModel
+@{
+    Layout = "_LayoutForm";
+}
+@if (Model.WrongPassword)
+{
+    <div style="background-color: red; border-radius: 8px;padding: 10px; margin-bottom: 5%;">
+    <h1 style="color: white; font-family: Calibri,sans-serif; margin-bottom: 1%; font-size: 18px;">Wrong credentials entered, please try again.</h1>
+    </div>
+}
+
+<form method="post" style="font-family: Calibri,sans-serif">
+    <h1 class="title">Login</h1>
+    <span asp-validation-for="Username" style="color: orangered; font-size: 12px;"></span><input type="text" asp-for="Username" class="input-text" placeholder="Username" />
+    <span asp-validation-for="Password" style="color: orangered; font-size: 12px;"></span><input type="password" asp-for="Password" class="input-text" placeholder="Password" />
+
+    <input type="submit" value="Login" class="input-submit" />
+    <a class="login_cancel_link" asp-page="/Index">Cancel</a>
+</form>

@@ -1,0 +1,26 @@
+﻿@page
+@model Media_Bazaar_Website.Pages.EditProfileFormModel
+@{
+    Layout = "_Layout";
+}
+
+<head>
+    <link rel='stylesheet' href='~/css/formstyle.css'>
+    <title>Edit profile</title>
+</head>
+
+<div class="center" style="margin-top:10%">
+<form method="post">
+    <h1 class="title">Edit Profile</h1>
+
+    <label class="edit_profile_label">Surname</label><span asp-validation-for="Surname" style="color: orangered; font-size: 12px;"></span><input type="text" asp-for="Surname" class="input-text" value="@Model.user.SurName" placeholder="Surname" />
+    <label class="edit_profile_label">Username</label><span asp-validation-for="Username" style="color: orangered; font-size: 12px;"></span><input type="text" asp-for="Username" class="input-text" value="@Model.user.UserName" placeholder="Username" />
+    <label class="edit_profile_label">Email</label><span asp-validation-for="Email" style="color: orangered; font-size: 12px;"></span><input type="text" asp-for="Email" class="input-text" value="@Model.user.Email" placeholder="Email" />
+    <label class="edit_profile_label">Phone Number</label><span asp-validation-for="PhoneNumber" style="color: orangered; font-size: 12px;"></span><input type="text" asp-for="PhoneNumber" class="input-text" value="@Model.user.PhoneNumber" placeholder="Phone Number" />
+    <label class="edit_profile_label">Contact Person</label><span asp-validation-for="ContactPerson" style="color: orangered; font-size: 12px;"></span><input type="text" asp-for="ContactPerson" class="input-text" value="@Model.user.ContactPerson" placeholder="Contact Person" />
+
+    <input type="submit" value="Edit" class="input-submit" />
+    <a class="login_cancel_link" asp-page="/LogPages/ViewProfile">Cancel</a>
+    <a class="change_password_link_in_edit_profile" asp-page="/LogPages/EditPasswordForm">Change Password</a>
+</form>
+</div>

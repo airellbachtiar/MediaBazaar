@@ -1,0 +1,55 @@
+﻿#select-monday:checked ~ .monday-tab{
+    background-color: green;
+}
+
+#select-monday:not(:checked) ~ .monday-tab {
+    background-color: red;
+}
+
+#select-tuesday:checked ~ .tuesday-tab {
+    background-color: green;
+}
+
+#select-tuesday:not(:checked) ~ .tuesday-tab {
+    background-color: red;
+}
+
+#select-wednesday:checked ~ .wednesday-tab {
+    background-color: green;
+}
+
+#select-wednesday:not(:checked) ~ .wednesday-tab {
+    background-color: red;
+}
+
+#select-thursday:checked ~ .thursday-tab {
+    background-color: green;
+}
+
+#select-thursday:not(:checked) ~ .thursday-tab {
+    background-color: red;
+}
+
+#select-friday:checked ~ .friday-tab {
+    background-color: green;
+}
+
+#select-friday:not(:checked) ~ .friday-tab {
+    background-color: red;
+}
+
+#select-saturday:checked ~ .saturday-tab {
+    background-color: green;
+}
+
+#select-saturday:not(:checked) ~ .saturday-tab {
+    background-color: red;
+}
+
+#select-sunday:checked ~ .sunday-tab {
+    background-color: green;
+}
+
+#select-sunday:not(:checked) ~ .sunday-tab {
+    background-color: red;
+}

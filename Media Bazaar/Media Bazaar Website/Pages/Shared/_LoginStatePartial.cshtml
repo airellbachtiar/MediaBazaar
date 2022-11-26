@@ -1,0 +1,29 @@
+﻿@if(User.Identity.IsAuthenticated)
+    {
+        <nav>
+            @*<ul class="nav_links">
+                <form method="post" asp-page="/Forms/Logout">
+                    <li><a class="login_button" asp-page="/Forms/EditProfileForm">Edit</a></li>
+                    <button class="login_button" type="submit">Logout</button>
+                </form>
+            </ul>*@
+            <ul class="navigation-links">
+                @*<form method="post" asp-page="/LogPages/Logout">
+                    <button class="login-link-option" type="submit">Logout</button>
+                </form>*@
+                <li><a asp-page="/LogPages/Logout" class="login-link-option">Logout</a></li>
+            </ul>
+        </nav>
+    }
+else
+    {
+        <nav>
+            @*<ul class="nav_links">
+                <button class="login_button" type="button" style="visibility:hidden">Edit</button>
+                <a class="login_button" asp-page="/Forms/LoginForm">Login</a>
+            </ul>*@
+            <ul class="navigation-links">
+                <li><a asp-page="/LogPages/LoginForm" class="login-link-option">Login</a></li>
+            </ul>
+        </nav>
+    }

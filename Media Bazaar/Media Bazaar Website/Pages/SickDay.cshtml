@@ -1,0 +1,28 @@
+﻿@page
+@model Media_Bazaar_Website.Pages.SickDay
+
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Request a sick day</title>
+</head>
+<body>
+<div>
+    @if (Model.Sick)
+    {
+        <h2 style="margin-top:2%; text-align:center;">You are marked as sick today.</h2>
+    }
+    else
+    {
+        <form style="display: flex; justify-content: center; flex-wrap: wrap;" method="post">
+            <h2 style="flex-basis: 100%; margin-top: 2%;">If you are sick and are not able to come to work today, please click the button below. You will be marked as sick for this day.</h2>
+            <input style="width: 30%; margin-top: 6%; background: #007bff; color: white; font-weight: bold; font-size: 20px; border-radius: 6px; border: none; padding: 10px; cursor: pointer;" class="btn btn-primary" type="submit" value="Mark as sick">
+        </form>
+    }
+</div>
+</body>
+</html>

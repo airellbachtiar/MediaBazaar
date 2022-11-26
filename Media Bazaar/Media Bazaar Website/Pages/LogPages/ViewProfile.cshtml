@@ -1,0 +1,72 @@
+﻿@page
+@model Media_Bazaar_Website.Pages.LogPages.ViewProfileModel
+@{
+    Layout = "_Layout";
+}
+
+<head>
+    <link rel='stylesheet' href='~/css/formstyle.css'>
+    <title>Profile</title>
+</head>
+<div class="center" style="margin-top: 10%">
+<form method="post">
+    <h1 class="title">@Model.user.UserName</h1>
+
+    
+    <div class="info_data">
+        <div class="data">
+            <label class="view_profile_label">First Name</label>
+            @*<p class="text_information">@Model.user.FirstName</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.FirstName" disabled="disabled"/>
+        </div>
+        <div class="data">
+            <label class="view_profile_label">Surname</label>
+            @*<p class="text_information">@Model.user.SurName</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.SurName" disabled="disabled" />
+        </div>
+        <div class="data">
+            <label class="view_profile_label">Phone Number</label>
+            @*<p class="text_information">@Model.user.PhoneNumber</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.PhoneNumber" disabled="disabled" />
+        </div>
+        <div class="data">
+            <label class="view_profile_label">Contact Person</label>
+            @*<p class="text_information">@Model.user.ContactPerson</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.ContactPerson" disabled="disabled" />
+        </div>
+        <div class="data">
+            <label class="view_profile_label">Email</label>
+            @*<p class="text_information">@Model.user.Email</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.Email" disabled="disabled" />
+        </div>
+        <div class="data">
+            <label class="view_profile_label">BSN</label>
+            @*<p class="text_information">@Model.user.BSN</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.BSN" disabled="disabled" />
+        </div>
+        <div class="data">
+            <label class="view_profile_label">Role</label>
+            @*<p class="text_information">@Model.user.Role</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.Role" disabled="disabled" />
+        </div>
+        <div class="data">
+            <label class="view_profile_label">Job</label>
+            @*<p class="text_information">@Model.user.Job</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.Job" disabled="disabled" />
+        </div>
+        <div class="data">
+            <label class="view_profile_label">Department</label>
+            @*<p class="text_information">@Model.user.Department</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.Department" disabled="disabled" />
+        </div>
+        <div class="data">
+            <label class="view_profile_label">Note</label>
+            @*<p class="text_information">@Model.user.Note</p>*@
+            <input type="text" class="input-text-view-profile" value="@Model.user.Note" disabled="disabled" />
+        </div>
+    </div>
+
+    <a class="input-submit" asp-page="/LogPages/EditProfileForm">Edit</a>
+    <a class="login_cancel_link" asp-page="/Index">Back</a>
+</form>
+</div>

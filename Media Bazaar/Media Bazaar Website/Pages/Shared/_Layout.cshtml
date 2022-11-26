@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html lang="en" style="font-family: Calibri,sans-serif">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Media_Bazaar_Website</title>
+    <link rel="stylesheet" href="~/css/layoutstyle.css" />
+    @RenderSection("CSS", required: false)
+</head>
+<body>
+
+    <header>
+            <img src="/img/Media Bazaar-Logo Full Color Transparent.png" class="mediabazaar-logo">
+
+            <nav>
+                <ul class="navigation-links">
+                    <li><a asp-page="/Index">Home</a></li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-page="/CalendarForm/WeekForm">Schedule</a></li>
+                        <li><a asp-page="/EmployeeAvailabilityForm/EmployeeAvailabilityForm">Availability</a></li>
+                        <li><a asp-page="/SickDay">Sick day</a></li>
+                        <li><a asp-page="/LogPages/ViewProfile" class="login-link-option">Profile</a></li>
+                    }
+                </ul>
+            </nav>
+
+
+            <partial name="_LoginStatePartial"/>
+
+    </header>
+    <div class="content-container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - Media Bazaar - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+</body>
+</html>

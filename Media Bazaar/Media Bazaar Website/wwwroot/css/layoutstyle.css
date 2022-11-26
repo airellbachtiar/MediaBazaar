@@ -1,0 +1,160 @@
+﻿* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0 5px 5px 5px;
+}
+
+body {
+    background-image: url('../img/WhiteWallpaper.jpeg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/*Navigation bar setup*/
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 10%;
+    background-color: #4b79d6;
+}
+
+/*Link in header font*/
+header a, header h1{
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+/*Hide list style and make it all in one line*/
+header .navigation-links li{
+    display: inline-block;
+    padding: 0px 10px;
+}
+
+img.mediabazaar-logo{
+    margin: -25px 0;
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.content-container {
+    position: relative;
+    min-height: 80vh;
+    padding-bottom: 100px;
+    overflow: auto;
+}
+
+footer {
+    position: relative;
+    bottom: -40px;
+    width: 90%;
+    left: 40px;
+    text-decoration: none;
+    padding: 20px;
+    clear: both;
+}
+
+/*Home Page*/
+.middle-logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.middle-logo h1{
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-bottom: 3px solid black;
+    margin-bottom: -120px;
+}
+
+.middle-logo img{
+    width: 500px;
+    height: 500px;
+}
+
+/*Calendar*/
+.calendar {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.calendar-form {
+    display: block;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2%;
+    width: 180px;
+}
+
+.calendar-form .calendar-date-input{
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+
+.calendar-form .calendar-submit {
+    background-color: #4b79d6;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    display: block;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.calendar-form .calendar-submit :hover {
+     background-color: dodgerblue;
+}
+
+.calendar-container {
+    display: block;
+    margin-top: 5px;
+}
+
+.calendar-table{
+    width: 100%;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.calendar-table thead {
+    background-color: #4b79d6;
+    border-radius: 10px;
+    color: whitesmoke;
+}
+
+.calendar-table tbody td{
+    height: 50px;
+    border-bottom: 1px solid black;
+    border-left: 1px solid black;
+}
+
+.calendar-table .table-shift{
+    color: black;
+    border-right: 1px solid black;
+    border-left: none;
+}
+
+.calendar-table .have-schedule{
+    background-color: lightgreen;
+}

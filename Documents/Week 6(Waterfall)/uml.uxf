@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>5</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>125</x>
+      <y>250</y>
+      <w>270</w>
+      <h>290</h>
+    </coordinates>
+    <panel_attributes>User
+--
+-id: int
+-firstName: string
+-surName: string
+-userName: string
+-password: string
+-phoneNumber: int
+-contactPerson: int
+-email: string
+-bSN: int
+-job: string
+-role: RoleType
+-contract: Contract
+-department: string
+-note: string
+-isActive: bool
+--
++User()
++User(id: int, firstname: string, surname: string, username: string, password: string,
+phonenumber: int, contactperson: int, email: string, bsn: int, job: string,
+role: RoleType, department: string, note: string)
++ID{get;}: int
++FirstName{get;}: string
++SurName{get;}: string
++UserName{get;}: string
++Password{get;}: string
++PhoneNumber{get;}: int
++Department{get;}: string
++ContactPerson{get;}: int
++Email{get;}: string
++BSN{get;}: int
++Job{get;}: string
++Role{get;}: RoleType
++Contract{get;}: Contract
++Note{get;}: string
++IsActive{get;}: bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>320</y>
+      <w>290</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>UserController
+--
+-users: List&lt;User&gt;
+-empdal: EmployeeDAL
+-up: UserParcer
+--
++UserController()
++GetAllUsers(): List&lt;User&gt;
++CreateNewUser(firstname: string, surname: string, username: string, password: string,
+phonenumber: int, contactperson: int, email: string, bsn: int, role: RoleType, job: string, 
+department: string, note: string, contracttype: ContractType, hourrate: double, startdate: DateTime, 
+enddate: DateTime): void
++EditUser(BSN: int, phone: int, contact: int, email: string, function: string, notes: string): void
++Login(username: string, password: string): User
++GetUserByBSN(BSN: int): User
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>375</y>
+      <w>70</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1= 0..*</panel_attributes>
+    <additional_attributes>10.0;20.0;120.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>430</x>
+      <y>245</y>
+      <w>135</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>UserParcer
+--
++UserParcer()
++DataSetToClass(table: DataSet, x: int): User
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>495</x>
+      <y>280</y>
+      <w>25</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1= 1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>580</x>
+      <y>165</y>
+      <w>345</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>EmployeeDAL
+--
+-DBController: DatabaseController
+--
++EmployeeDAL()
++GetAllEmployees(): DataSet
++Login(username: string, password: string): Dataset
++AddNewUser(firstname: string, surname: string, username: string, password: string,
+phonenumber: int, contactperson: int, email: string, bsn: int, role: RoleType, job: string, 
+department: string, note: string): void
++UpdateUser(BSN: int, phone: int, contact: int, email: string, function: string, notes: string): void
++GetUserByBSN(bsn: int): DataSet
++GetUserIDByBSN(bsn: int): int
++AddNewContract(userid: int, contractid: ContracType, hourrate: double, startdate: DateTime, enddate: DatetTime): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>635</x>
+      <y>280</y>
+      <w>25</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1= 1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>125</x>
+      <y>100</y>
+      <w>335</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>Contract
+--
+-id: int
+-contracttype: ContractType
+-hourRate: double
+-startDate: DateTime
+-endDate: DateTime
+--
++Contract(id: int, contracttype: ContractType, hourrate: double, startdate: DateTime, enddate: DateTIme)
++ID{get}: int
++Contracttype{get}: ContractType
++HourRate{get}: double
++StartDate{get}: DateTime
++EndDate{get}: DatTime</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>205</y>
+      <w>25</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>125</y>
+      <w>60</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+ContractType
+--
+FullTime
+PartTime
+Flex</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>75</x>
+      <y>145</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>250</y>
+      <w>60</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+RoleType
+--
+Employee
+Manager
+Admin</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>75</x>
+      <y>270</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>615</x>
+      <y>50</y>
+      <w>265</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>DatabaseController
+--
+-connection: MySqlConnection
+--
++DatabaseController()
+-GetParam(keyValuePair: KetValuePair&lt;string, dynamic&gt;): MySqlParameter
++ExecuteSql(sql: string, parameters: List&lt;KeyValuePair&lt;string, dynamic&gt;&gt;): DataSet
++ExecuteInser(sql: string, parameters: List&lt;KeyValuePair&lt;string, dynamic&gt;&gt;): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>730</x>
+      <y>105</y>
+      <w>25</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1= 1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1050</x>
+      <y>340</y>
+      <w>280</w>
+      <h>285</h>
+    </coordinates>
+    <panel_attributes>Product
+--
+-id: int
+-name: string
+-brand: string
+-length: double
+-width: double
+-height: double
+-sellingPrice: double
+-priceWithoutVAT: double
+-depotStock: int
+-storeStock: int
+-depotLocation: string
+-category: string
+-description: string
+--
++Product(name: string, brand: string, length: double, width: double, height: double,
+sellingPrice: double, priceWithoutVAT: double, depotStock: int, storeStock: int,
+depotLocation: string, category: string, description: string)
++Product(id: int, name: string, brand: string, length: double, width: double, height: double,
+sellingPrice: double, priceWithoutVAT: double, depotStock: int, storeStock: int,
+depotLocation: string, category: string, description: string)
++Id{get;set;}: int
++Name{get;set;}: string
++Brand{get;set;}: string
++Length{get;set;}: double
++Width{get;set;}: double
++Height{get;set;}: double
++SellingPrice{get;set;}: double
++PriceWithoutVAT{get;set;}: double
++DepotStock{get;set;}: int
++StoreStock{get;set;}: int
++DepotLocation{get;set;}: string
++Category{get;set;}: string
++Description{get;set;}: string
++ToString(): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>835</x>
+      <y>380</y>
+      <w>170</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;interface&gt;&gt;
+IComparer&lt;T&gt;
+--
++Compare&lt;x: T, y: T&gt;: int
++SortByNameAscending(Name): class
++SortByNameDescending(Name): class
++SortByBrandAscending(Brand): class
++SortByBrandDescending(Brand): class
++SortBySellingPriceAscending(SellingPrice): class
++SortBySellingPriceDescending(SellingPrice): class
++SortByCategoryAscending(Category): class
++SortByCategoryDescending(Category): class</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1000</x>
+      <y>435</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1375</x>
+      <y>405</y>
+      <w>155</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>ProductController
+--
+-products: List&lt;Product&gt;
+--
++ProductController()
++AddProduct(p: Product): void
++RemoveProductByID(id: int): void
++GetProductByIndrx(index: int): Product
++GetProducts(): Product[]
++SetProduct(newList: List&lt;Product&gt;): void
++ReloadProducts(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1375</x>
+      <y>285</y>
+      <w>155</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_ProductDAL_
+--
+_-connectionStr: string_
+_+connection: MySqlConnection_
+-sql: string
+_-cmd: MySqlCommand_
+--
+_+GetProducts(): List&lt;Product&gt;_
+_+AddProduct(product: Product): void_
+_+EditProduct(product: Product): void_
+_+DeleteProduct(product: Product): void_
+_+FilterProduct(sql: string): void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1325</x>
+      <y>435</y>
+      <w>60</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1= 0..*</panel_attributes>
+    <additional_attributes>10.0;20.0;100.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1445</x>
+      <y>370</y>
+      <w>15</w>
+      <h>45</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;70.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>615</y>
+      <w>120</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>Schedule
+--
+-weeks: List&lt;Week&gt;
+-users: List&lt;User&gt;
+-
++Schedule()
++Weeks{get;set;}: List&lt;Week&gt;
++Users{get;set;}: List&lt;User&gt;
++AddWeek(week: Week): void
++GetWeek(weekNumber: int): Week
++GetUser(id: int): User</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>615</y>
+      <w>120</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>Week
+--
+-shifts: List&lt;Shift&gt;
+-weekNumber: int
+-
++Week(weekNumber: int)
++Shifts{get;}: List&lt;Shift&gt;
++WeekNumber{get;}: int
++GetShift(day: string)
++ReplaceShift(shift: Shift): void
++Equals(obj: object): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>265</x>
+      <y>650</y>
+      <w>65</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1= 0..*</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>615</y>
+      <w>295</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>Shift
+--
+-dayName: Day
+-maxMorningShifts: int = 0
+-maxAfternoonShifts: int = 0
+-maxEveningShifts: int = 0
+-morning: List&lt;User&gt;
+-afternoon: List&lt;User&gt;
+-evening: List&lt;User&gt;
+-
++Shift(dayName: Day, maxMorningShifts: int, maxAfternoonShifts: int, maxEveningShifts: int)
++Shift(dayName: Day)
++Morning{get;set;}: List&lt;User&gt;
++Afternoon{get;set;}: List&lt;User&gt;
++Evening{get;set;}: List&lt;User&gt;
++MaxMorningShifts{get;set;}: int
++MaxAfternoonShifts{get;set;}: int
++MaxEveningShifts{get;set;}: int
++DayName{get;}: Day
++RemoveFromShift(userToRemove: User, timeType: int): void
++AddToShift(userToAdd: User, shiftTime: string): int
++GetDaynameToString(): string
++Equals(obj: object): bool
++GetRightShiftTime(timeType: int): string</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>435</x>
+      <y>650</y>
+      <w>65</w>
+      <h>25</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1= 7</panel_attributes>
+    <additional_attributes>110.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>830</x>
+      <y>675</y>
+      <w>55</w>
+      <h>85</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enumeration&gt;&gt;
+Day
+--
+MONDAY
+TUESDAY
+WEDNESDAY
+THURSDAY
+FRIDAY
+SATURDAY
+SUNDAY</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>715</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>145</x>
+      <y>830</y>
+      <w>300</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>ScheduleController
+--
+_+GetWeeks(): List&lt;Week&gt;_
+_+GetEmployees(): List&lt;User&gt;_
+_+GetSchedules(schedule: Schedule): void_
+_+UpdateWeeks(updateWeeks: List&lt;Week&gt;, oldWeeks: List&lt;Week&gt;): void_
+_+ShiftContains(toCheck: Week, oldWeeks: List&lt;Week&gt;): bool_
+_+EditShifts(editShifts: List&lt;Week&gt;, oldWeeks: List&lt;Week&gt;): void_
+_+GetWeekNumbers(oldWeeks: List&lt;Week&gt;): List&lt;int&gt;_
+_+GetWeekIndex(weeks: List&lt;Week&gt;, weekToFind: Week): int_
+_+AddEmployeeShift(userID: int, shiftDay: string, weekNumber: int, shiftTime: string): void_
+_+RemoveEmployeeShift(userID: int, shiftDay: string, weekNumber: int, shiftTime: string): void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>825</y>
+      <w>305</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>_ScheduleDAL_
+--
+_-connectionStr: string_
+_+connection: MySqlConnection_
+-sql: string
+_-cmd: MySqlCommand_
+--
+_+GetWeeks(): List&lt;Week&gt;_
+_+GetAllEmployeesToSchedule: List&lt;User&gt;_
+_+GetEmployeeSchedule: List&lt;List&lt;String&gt;&gt;_
+_+AddWeek(weeks: List&lt;Week&gt;): void_
+_+EditMaxShift(shift: Shift, wekkNumber: int): void_
+_+AddEmployeeShift(userID, shiftDay: string, weekNumber: int, shiftTime: string): void_
+_+RemoveEmployeeShift(userId: int, dayName: string, weekNumber: int, shiftTime: string):void_</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>440</x>
+      <y>875</y>
+      <w>60</w>
+      <h>15</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;100.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>180</x>
+      <y>695</y>
+      <w>15</w>
+      <h>145</h>
+    </coordinates>
+    <panel_attributes>lt=-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>210</x>
+      <y>535</y>
+      <w>25</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;-
+has
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+</diagram>

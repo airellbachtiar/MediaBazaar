@@ -1,0 +1,15 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "My page";
+}
+
+<div class="text-center">
+    <div class="middle-logo">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h1 class="display-4">Welcome @Model.user.UserName</h1>
+        }
+        <img src="~/img/Media Bazaar-Logo Black.png">
+    </div>
+</div>
